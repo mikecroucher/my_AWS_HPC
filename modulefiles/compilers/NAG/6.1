@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+#
+# NAG Fortran Compiler 6.1 module file
+#
+
+proc ModulesHelp { } {
+        global nagvers
+        puts stderr "Makes the NAG Fortran Compiler v$nagvers available"
+}
+
+set nagvers 6.1
+set nagroot /shared/software/nag_compiler/$nagvers
+
+module-whatis   "Makes the NAG Fortran Compiler v$nagvers available"
+conflict compilers/NAG
+
+prepend-path PATH $nagroot/bin
+prepend-path MANPATH $nagroot/man
+setenv NAG_KUSARI_FILE /shared/software/nag_compiler/license.lic
+
